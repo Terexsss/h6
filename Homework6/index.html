@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Список задач</h1>
+<input type="text" id="taskInput" placeholder="Введите новую задачу">
+<button id="addTaskButton">Добавить задачу</button>
+
+<ul id="taskList"></ul>
+
+<div>
+    <button id="showAll">Показать все</button>
+    <button id="showCompleted">Показать выполненные</button>
+    <button id="showIncomplete">Показать невыполненные</button>
+</div>
+
+<script src="script.js">
+</script>
+
+</body>

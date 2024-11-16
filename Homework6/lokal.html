@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сохранение имени</title>
+</head>
+<body>
+
+<h1>Введите ваше имя</h1>
+<input type="text" id="nameInput" placeholder="Ваше имя">
+<button id="saveButton">Сохранить имя</button>
+
+<div id="savedName"></div>
+
+<script>
+    // Получить элементы из DOM
+    const nameInput = document.getElementById('nameInput');
+    const saveButton = document.getElementById('saveButton');
+    const savedNameDiv = document.getElementById('savedName');
+
+    // Функция для загрузки сохранённого имени из LocalStorage
+    function loadName() {
+        const savedName = localStorage.getItem('userName');
+        if (savedName) {
+            savedNameDiv.textContent = `Сохранённое имя: ${savedName}`;
+        }
+    }
+
+    //  обработчик события для кнопки
+    saveButton.addEventListener('click', () => {
+        const userName = nameInput.value;
+        if (userName) {
+            localStorage.setItem('userName', userName);
+            savedNameDiv.textContent = `Сохранённое имя: ${userName}`;
+            nameInput.value = ''; // Очистить поле ввода
+        }
+    });
+
+    // Загрузить имя при загрузке страницы
+    window.onload = loadName;
+</script>
+
+</body>
+</html>
